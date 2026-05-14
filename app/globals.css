@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --bg-primary: #f9fafb;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e5e7eb;
+  --bg-card: rgb(255 255 255 / 0.72);
+  --bg-card-solid: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-primary: #e5e7eb;
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-success: #22c55e;
+  --bucket-purple: #6d28d9;
+  --bucket-green: #047857;
+  --bucket-orange: #c2410c;
+  --bucket-teal: #0e7490;
+
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-card-solid);
+  --card-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--bg-secondary);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-tertiary);
+  --muted-foreground: var(--text-muted);
+  --border: var(--border-primary);
+  --radius: 1rem;
+}
+
+.dark {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+  --bg-card: rgb(31 41 55 / 0.5);
+  --bg-card-solid: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-primary: #374151;
+  --accent-primary: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-success: #22c55e;
+  --bucket-purple: #c4b5fd;
+  --bucket-green: #6ee7b7;
+  --bucket-orange: #fdba74;
+  --bucket-teal: #5eead4;
+
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-card-solid);
+  --card-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--bg-secondary);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-tertiary);
+  --muted-foreground: var(--text-muted);
+  --border: var(--border-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-app: var(--bg-primary);
+  --color-surface: var(--bg-secondary);
+  --color-card-glass: var(--bg-card);
+  --color-card-solid: var(--bg-card-solid);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-success: var(--accent-success);
+  --color-muted-foreground: var(--text-muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-bucket-purple: var(--bucket-purple);
+  --color-bucket-green: var(--bucket-green);
+  --color-bucket-orange: var(--bucket-orange);
+  --color-bucket-teal: var(--bucket-teal);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-app text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply rounded-2xl border border-border/80 bg-card-glass backdrop-blur-md;
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.08),
+      0 1px 2px 0 rgb(0 0 0 / 0.04);
+  }
+
+  .dark .glass-card {
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.05),
+      0 1px 2px 0 rgb(0 0 0 / 0.2);
+  }
+
+  .accent-top-blue {
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        var(--accent-primary),
+        color-mix(in srgb, var(--accent-primary) 40%, var(--bucket-teal))
+      )
+      1;
+  }
+
+  .accent-top-green {
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        var(--accent-success),
+        var(--bucket-green)
+      )
+      1;
+  }
+
+  .accent-top-orange {
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(
+        90deg,
+        var(--bucket-orange),
+        color-mix(in srgb, var(--bucket-orange) 60%, var(--accent-primary))
+      )
+      1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

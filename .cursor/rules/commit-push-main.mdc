@@ -1,0 +1,18 @@
+---
+description: When user says commit push main, stage all changes, commit, and push to origin main
+alwaysApply: true
+---
+
+# Commit push main
+
+When the user message is **commit push main** (or close variants like "commit and push to main"):
+
+1. Run `git status` and review changes.
+2. Stage all relevant files (`git add -A`), excluding anything that should not be committed.
+3. Create a commit with a clear message summarizing the changes. If the user gave no message, write one from the diff.
+4. Push to `origin main`: `git push origin main`
+5. If `origin` is missing, ask for the GitHub repo URL and set it with `git remote add origin <url>` then push.
+6. If push fails (auth, no upstream), diagnose and fix or report what the user must do (e.g. GitHub login, create repo).
+7. Briefly confirm: commit hash, branch, and that push succeeded (Vercel will deploy automatically if the repo is linked).
+
+Default remote branch: **main**. GitHub username: **natemahy**.
