@@ -10,14 +10,14 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-app/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 xl:px-8">
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 py-3 sm:px-6 xl:px-8">
         <a href="#" className="flex items-center" aria-label="Relai home">
           <Image
-            src={ASSETS.logo}
+            src={ASSETS.logoWordmark}
             alt="Relai"
-            width={120}
-            height={32}
-            className="h-8 w-auto"
+            width={520}
+            height={160}
+            className="h-10 w-auto object-contain object-left sm:h-12 md:h-14"
             priority
           />
         </a>

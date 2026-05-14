@@ -1,7 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
 import { FeatureCards } from "@/components/feature-cards";
-import { BetaCta } from "@/components/beta-cta";
 import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
@@ -11,7 +10,6 @@ export default function Home() {
       <main>
         <Hero />
         <FeatureCards />
-        <BetaCta />
         {/* TODO: About section — "Click to Know More" links here; full content not built yet */}
         <section
           id="about"

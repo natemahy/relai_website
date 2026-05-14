@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { DemoVideo } from "@/components/demo-video";
-import { BETA_SIGNUP_HREF } from "@/lib/site-config";
+import { BetaCta } from "@/components/beta-cta";
 
 export function Hero() {
   return (
@@ -17,15 +16,8 @@ export function Hero() {
             Locker Room &amp; Singles Sorter for Live Sellers.
           </h1>
 
-          <div className="flex flex-col items-start gap-4 lg:col-span-6 lg:col-start-1 lg:pt-8 xl:pt-10">
-            <Button href={BETA_SIGNUP_HREF} className="min-w-[14rem]">
-              Click to Join Beta Group
-            </Button>
-            <p className="max-w-md text-sm leading-relaxed text-muted-foreground sm:max-w-lg sm:text-[0.95rem]">
-              Relai Beta Group gets exclusive access to Buyers Locker Room and
-              Seller Sorting Software for free during the beta period and a
-              lifetime discounted coupon for software once released.
-            </p>
+          <div className="lg:col-span-6 lg:col-start-1 lg:pt-8 xl:pt-10">
+            <BetaCta />
           </div>
 
           <div className="lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:pt-10 xl:pt-14">
