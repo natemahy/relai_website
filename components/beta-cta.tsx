@@ -20,25 +20,9 @@ export function BetaCta() {
         </p>
       </div>
 
-      <form
-        className="flex flex-col gap-3 sm:flex-row sm:items-center"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <label htmlFor="beta-email" className="sr-only">
-          Email address
-        </label>
-        <input
-          id="beta-email"
-          type="email"
-          name="email"
-          placeholder="you@example.com"
-          className="h-11 w-full rounded-xl border border-border/80 bg-card-solid px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 sm:max-w-xs"
-          autoComplete="email"
-        />
-        <Button href={BETA_SIGNUP_HREF} className="shrink-0">
-          Click to Join Beta Group
-        </Button>
-      </form>
+      <Button href={BETA_SIGNUP_HREF} className="w-full sm:w-auto">
+        Click to Join Beta Group
+      </Button>
     </div>
   );
 }

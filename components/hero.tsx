@@ -3,7 +3,7 @@ import { BetaCta } from "@/components/beta-cta";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-visible">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgb(37_99_235/0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgb(59_130_246/0.15),transparent)]"
@@ -20,8 +20,10 @@ export function Hero() {
             <BetaCta />
           </div>
 
-          <div className="lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:pt-10 xl:pt-14">
-            <DemoVideo />
+          <div className="z-10 mt-10 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:mt-0 lg:pt-16 xl:pt-24">
+            <div className="lg:origin-top lg:scale-[1.07] xl:scale-[1.09]">
+              <DemoVideo />
+            </div>
           </div>
         </div>
       </div>

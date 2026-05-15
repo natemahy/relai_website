@@ -7,9 +7,11 @@ type ModalProps = {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  /** Wider dialog for longer reading content */
+  wide?: boolean;
 };
 
-export function Modal({ open, onClose, title, children }: ModalProps) {
+export function Modal({ open, onClose, title, children, wide }: ModalProps) {
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -44,7 +46,11 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="glass-card relative z-10 flex max-h-[min(85vh,640px)] w-full max-w-lg flex-col border-border/80 shadow-xl sm:max-w-xl"
+        className={
+          wide
+            ? "glass-card relative z-10 flex max-h-[min(90vh,760px)] w-full max-w-2xl flex-col border-border/80 shadow-xl"
+            : "glass-card relative z-10 flex max-h-[min(85vh,640px)] w-full max-w-lg flex-col border-border/80 shadow-xl sm:max-w-xl"
+        }
       >
         <div className="flex items-start justify-between gap-4 border-b border-border/60 px-5 py-4 sm:px-6">
           <h2 id={titleId} className="text-lg font-semibold tracking-tight text-foreground">

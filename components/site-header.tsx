@@ -1,49 +1,76 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Modal } from "@/components/ui/modal";
 import { ASSETS } from "@/lib/site-config";
+import { RELAI_KNOW_MORE_PARAGRAPHS } from "@/lib/relai-know-more-content";
 import { useTheme } from "@/lib/use-theme";
 
 export function SiteHeader() {
   const { theme, toggleTheme, mounted } = useTheme();
+  const [knowMoreOpen, setKnowMoreOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-app/80 backdrop-blur-md">
-      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 py-3 sm:px-6 xl:px-8">
-        <a href="#" className="flex items-center" aria-label="Relai home">
-          <Image
-            src={ASSETS.logoWordmark}
-            alt="Relai"
-            width={520}
-            height={160}
-            className="h-10 w-auto object-contain object-left sm:h-12 md:h-14"
-            priority
-          />
-        </a>
-
-        <div className="flex items-center gap-4 sm:gap-6">
+    <>
+      <header className="sticky top-0 z-50 overflow-visible border-b border-border/60 bg-app/80 backdrop-blur-md">
+        <div className="mx-auto flex min-h-[4.5rem] max-w-6xl items-center justify-between overflow-visible px-4 py-2 sm:min-h-20 sm:px-6 xl:px-8">
           <Link
-            href="/#about"
-            className="text-sm font-medium text-foreground underline decoration-border underline-offset-[6px] transition-colors hover:text-primary hover:decoration-primary/60"
+            href="/"
+            className="relative flex h-9 w-[min(32rem,90vw)] max-w-[calc(100vw-8rem)] shrink-0 items-center overflow-visible sm:h-9 sm:max-w-none sm:w-[min(32rem,38vw)]"
+            aria-label="Relai home"
           >
-            Click to Know More
+            <div className="relative h-8 w-[11.5rem] origin-left scale-[2.05] sm:h-9 sm:w-[12.5rem] sm:scale-[2.25] md:scale-[2.45] lg:w-[13rem] lg:scale-[2.65]">
+              <Image
+                src={ASSETS.logoWordmark}
+                alt="Relai"
+                fill
+                className="object-contain object-left"
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 512px"
+                unoptimized
+                priority
+              />
+            </div>
           </Link>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/80 bg-card-solid/60 text-muted-foreground transition-colors hover:text-foreground"
-            aria-label={
-              mounted
-                ? `Switch to ${theme === "dark" ? "light" : "dark"} mode`
-                : "Toggle theme"
-            }
-          >
-            {mounted && theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
+
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              type="button"
+              onClick={() => setKnowMoreOpen(true)}
+              className="text-sm font-medium text-foreground underline decoration-border underline-offset-[6px] transition-colors hover:text-primary hover:decoration-primary/60"
+            >
+              Click to Know More
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/80 bg-card-solid/60 text-muted-foreground transition-colors hover:text-foreground"
+              aria-label={
+                mounted
+                  ? `Switch to ${theme === "dark" ? "light" : "dark"} mode`
+                  : "Toggle theme"
+              }
+            >
+              {mounted && theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <Modal
+        open={knowMoreOpen}
+        onClose={() => setKnowMoreOpen(false)}
+        title="About Relai"
+        wide
+      >
+        <div className="space-y-4">
+          {RELAI_KNOW_MORE_PARAGRAPHS.map((text, i) => (
+            <p key={i}>{text}</p>
+          ))}
+        </div>
+      </Modal>
+    </>
   );
 }
 
