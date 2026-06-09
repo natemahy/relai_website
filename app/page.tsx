@@ -1,6 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
-import { FeatureCards } from "@/components/feature-cards";
+import { LandingSections } from "@/components/landing/landing-sections";
 import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
@@ -9,13 +9,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        <FeatureCards />
-        {/* TODO: About section — "Click to Know More" links here; full content not built yet */}
-        <section
-          id="about"
-          className="sr-only"
-          aria-label="About Relai placeholder"
-        />
+        <LandingSections />
       </main>
       <SiteFooter />
     </>

@@ -1,5 +1,7 @@
 import { DemoVideo } from "@/components/demo-video";
-import { BetaCta } from "@/components/beta-cta";
+import { Button } from "@/components/ui/button";
+import { TrialCtaButton } from "@/components/trial-cta-button";
+import { HERO_TRUST_BADGES } from "@/lib/landing-content";
 
 export function Hero() {
   return (
@@ -16,8 +18,29 @@ export function Hero() {
             Locker Room &amp; Singles Sorter for Live Sellers.
           </h1>
 
-          <div className="lg:col-span-6 lg:col-start-1 lg:pt-8 xl:pt-10">
-            <BetaCta />
+          <div className="space-y-6 lg:col-span-6 lg:col-start-1 lg:pt-4 xl:pt-6">
+            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Print organizational labels the moment a buyer wins. Cloud app and
+              Chrome extension built for Whatnot live sellers — when your show
+              ends, every item is already sorted and ready to pack.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <TrialCtaButton />
+              <Button href="#how-it-works" variant="secondary">
+                See How It Works
+              </Button>
+            </div>
+
+            <ul className="flex flex-wrap gap-2 pt-1">
+              {HERO_TRUST_BADGES.map((badge) => (
+                <li key={badge}>
+                  <span className="inline-flex rounded-full border border-border/80 bg-card-solid/60 px-3 py-1 text-[11px] font-medium text-muted-foreground">
+                    {badge}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="z-10 mt-10 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:mt-0 lg:pt-16 xl:pt-24">
