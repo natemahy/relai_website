@@ -15,6 +15,7 @@ export function SectionShell({
     <section
       id={id}
       className={[
+        id ? "scroll-mt-28 sm:scroll-mt-32" : "",
         tinted ? "border-y border-border/40 bg-surface/25" : "",
         className,
       ]

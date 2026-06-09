@@ -14,7 +14,7 @@ export const LANDING_IMAGES = {
   howItWorks1: "",
   howItWorks2: "/images/live-stream.png",
   howItWorks3: "/images/sorter.png",
-  dashboard: "",
+  dashboard: "/images/dashboard.png",
   afterShowPdf: "",
   sorter: "/images/sorter.png",
   lockerRoom: "/images/locker-room.png",

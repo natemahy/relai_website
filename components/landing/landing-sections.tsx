@@ -140,28 +140,51 @@ function ComparisonCard({
   items: readonly string[];
   tone: "muted" | "positive";
 }) {
+  const isAfter = tone === "positive";
+
   return (
     <article
-      className={`glass-card space-y-4 p-6 sm:p-7 ${
-        tone === "positive" ? "accent-top-green" : ""
-      }`}
+      className={
+        isAfter
+          ? "space-y-4 rounded-2xl border-2 border-accent-success/45 bg-gradient-to-br from-accent-success/20 via-accent-success/10 to-accent-success/5 p-6 shadow-md shadow-accent-success/10 sm:p-7"
+          : "glass-card space-y-4 p-6 sm:p-7"
+      }
     >
-      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p
+        className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${
+          isAfter ? "text-bucket-green" : "text-muted-foreground"
+        }`}
+      >
         {label}
       </p>
-      <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+      <h3
+        className={`text-lg font-semibold tracking-tight ${
+          isAfter ? "text-foreground" : ""
+        }`}
+      >
+        {title}
+      </h3>
       <ul className="space-y-2.5">
         {items.map((item) => (
           <li
             key={item}
-            className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground"
+            className={`flex gap-2.5 text-sm leading-relaxed ${
+              isAfter ? "text-foreground/90" : "text-muted-foreground"
+            }`}
           >
-            <span
-              className={`mt-1.5 size-1.5 shrink-0 rounded-full ${
-                tone === "positive" ? "bg-accent-success" : "bg-muted-foreground/50"
-              }`}
-              aria-hidden
-            />
+            {isAfter ? (
+              <span
+                className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-accent-success/25 text-[10px] font-bold text-bucket-green"
+                aria-hidden
+              >
+                ✓
+              </span>
+            ) : (
+              <span
+                className="mt-1.5 size-1.5 shrink-0 rounded-full bg-muted-foreground/50"
+                aria-hidden
+              />
+            )}
             {item}
           </li>
         ))}
@@ -204,6 +227,7 @@ function HowItWorks() {
               <OptionalImage
                 src={images[i] ?? ""}
                 alt={`${step.title} screenshot`}
+                compact={i === 1}
               />
             </li>
           ))}
@@ -221,7 +245,7 @@ function AfterShowToolkit() {
   ];
 
   return (
-    <SectionShell>
+    <SectionShell id="after-show">
       <div className="space-y-10">
         <SectionHeading
           eyebrow="After the show"
@@ -248,7 +272,7 @@ function AfterShowToolkit() {
 
 function BuyerLockerRoom() {
   return (
-    <SectionShell tinted>
+    <SectionShell id="locker-room" tinted>
       <div className="grid items-center gap-10 lg:grid-cols-2">
         <div className="space-y-6">
           <SectionHeading
@@ -313,7 +337,7 @@ function LabelSizes() {
           title="Compatible label sizes"
           description="Choose the size that fits your workflow."
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {LABEL_SIZES.map((label) => (
             <article key={label.size} className="glass-card space-y-2 p-5 text-center">
               <h3 className="text-lg font-semibold tracking-tight text-primary">
@@ -332,7 +356,7 @@ function LabelSizes() {
 
 function PrintModesDetailed() {
   return (
-    <SectionShell>
+    <SectionShell id="print-modes">
       <div className="space-y-10">
         <SectionHeading
           title="Three print modes"
@@ -356,6 +380,9 @@ function PrintModesDetailed() {
   );
 }
 
+const THERMAL_LABEL =
+  "rounded-lg border border-neutral-300 bg-white p-4 text-black shadow-sm";
+
 function LabelPreview({
   preview,
 }: {
@@ -363,43 +390,43 @@ function LabelPreview({
 }) {
   if (preview.type === "buyer") {
     return (
-      <div className="mt-auto rounded-xl border border-border/80 bg-card-solid p-4 text-center">
-        <p className="text-3xl font-bold tabular-nums text-primary">{preview.number}</p>
-        <p className="mt-1 text-sm font-medium">{preview.buyer}</p>
+      <div className={`mt-auto text-center ${THERMAL_LABEL}`}>
+        <p className="text-3xl font-bold tabular-nums text-black">{preview.number}</p>
+        <p className="mt-1 text-sm font-semibold text-black">{preview.buyer}</p>
       </div>
     );
   }
 
   if (preview.type === "item") {
     return (
-      <div className="mt-auto space-y-2 rounded-xl border border-border/80 bg-card-solid p-4 text-sm">
+      <div className={`mt-auto text-sm ${THERMAL_LABEL}`}>
         <div className="flex items-center justify-between gap-2">
-          <span className="font-bold tabular-nums text-primary">{preview.number}</span>
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="font-bold tabular-nums text-black">{preview.number}</span>
+          <span className="text-[10px] font-bold uppercase tracking-wide text-black/70">
             Auction win
           </span>
         </div>
-        <p className="font-medium">{preview.buyer}</p>
-        <p className="text-muted-foreground">{preview.item}</p>
+        <p className="mt-1 font-semibold text-black">{preview.buyer}</p>
+        <p className="text-black/80">{preview.item}</p>
       </div>
     );
   }
 
   return (
     <div className="mt-auto space-y-2">
-      <div className="rounded-xl border border-border/80 bg-card-solid p-3 text-sm">
+      <div className={`text-sm ${THERMAL_LABEL} !p-3`}>
         <div className="flex items-center justify-between gap-2">
-          <span className="font-bold tabular-nums text-primary">{preview.number}</span>
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="font-bold tabular-nums text-black">{preview.number}</span>
+          <span className="text-[10px] font-bold uppercase tracking-wide text-black/70">
             Auction win
           </span>
         </div>
-        <p className="mt-1 font-medium">{preview.buyer}</p>
-        <p className="text-muted-foreground">{preview.item}</p>
+        <p className="mt-1 font-semibold text-black">{preview.buyer}</p>
+        <p className="text-black/80">{preview.item}</p>
       </div>
-      <div className="rounded-xl border border-border/80 bg-card-solid p-3 text-center text-sm">
-        <p className="text-2xl font-bold tabular-nums text-primary">{preview.number}</p>
-        <p className="font-medium">{preview.buyer}</p>
+      <div className={`text-center text-sm ${THERMAL_LABEL} !p-3`}>
+        <p className="text-2xl font-bold tabular-nums text-black">{preview.number}</p>
+        <p className="font-semibold text-black">{preview.buyer}</p>
       </div>
     </div>
   );

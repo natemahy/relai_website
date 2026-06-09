@@ -1,5 +1,15 @@
 export const TRIAL_CTA_LABEL = "Try Free for 7 Days";
 
+/** Sticky section nav — anchor links scroll to each block on the page */
+export const SECTION_NAV = [
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Dashboard & Tools", href: "#after-show" },
+  { label: "Locker Room", href: "#locker-room" },
+  { label: "Print Modes", href: "#print-modes" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Pricing", href: "#pricing" },
+] as const;
+
 export const HERO_TRUST_BADGES = [
   "Chrome",
   "Mac & Windows",
@@ -126,7 +136,6 @@ export const PRINTER_OPTIONS = [
 
 export const LABEL_SIZES = [
   { size: '2 × 2"', description: "Compact square tags for small items." },
-  { size: '3 × 2"', description: "Tight workflow for smaller lots and tags." },
   { size: '2 × 3"', description: "Popular all-around size for most items." },
   { size: '3 × 3"', description: "More room for item and buyer details." },
   { size: '4 × 6"', description: "Shipping-label size — sort and ship on one label." },
@@ -235,7 +244,7 @@ export const FAQ_ITEMS = [
   {
     question: "What label sizes can I use?",
     answer:
-      '2×2", 3×2", 2×3", 3×3", and 4×6". We recommend removable labels so they peel off cleanly.',
+      '2×2", 2×3", 3×3", and 4×6". We recommend removable labels so they peel off cleanly.',
   },
 ] as const;
 
