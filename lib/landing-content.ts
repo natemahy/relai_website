@@ -1,5 +1,8 @@
 export const TRIAL_CTA_LABEL = "Try Free for 7 Days";
 
+export const HERO_HEADLINE =
+  "Run your live show. Relai labels wins, organizes buyers, and proves every purchase.";
+
 /** Sticky section nav — anchor links scroll to each block on the page */
 export const SECTION_NAV = [
   { label: "How It Works", href: "#how-it-works" },
@@ -162,48 +165,87 @@ export const PRINT_MODES_DETAILED = [
   },
 ] as const;
 
+export type SellerFeatureAccent = "blue" | "green" | "orange";
+
+export type SellerFeatureIcon =
+  | "printer"
+  | "hash"
+  | "users"
+  | "sparkles"
+  | "vision"
+  | "locker"
+  | "pdf"
+  | "sorter"
+  | "cloud"
+  | "dashboard";
+
 export const BUILT_FOR_SELLERS = [
   {
     title: "Instant Label Printing",
     description: "Labels print automatically when sales are detected. No manual input needed.",
+    accent: "blue",
+    icon: "printer",
   },
   {
     title: "Sequential Numbering",
     description: "Each buyer gets a numbered label. Simple system to keep packages organized.",
+    accent: "green",
+    icon: "hash",
   },
   {
     title: "Repeat Buyer Detection",
     description: "Automatically recognizes repeat buyers within a show. No duplicate bin labels.",
+    accent: "orange",
+    icon: "users",
   },
   {
     title: "Hands-Free Printing",
     description: "Labels print while you focus on selling. No typing, no writing — just sell.",
+    accent: "blue",
+    icon: "sparkles",
   },
   {
     title: "AI Vision & Lot Photos",
     description: "Capture lot photos on save. Computer vision helps flag issues before they ship.",
+    accent: "green",
+    icon: "vision",
   },
   {
     title: "Buyer Locker Room",
     description: "Buyers see their wins in a dedicated gallery — builds trust and repeat business.",
+    accent: "orange",
+    icon: "locker",
   },
   {
     title: "After-Show PDF",
     description: "Printable show summary grouped by buyer. Pack faster with less guesswork.",
+    accent: "blue",
+    icon: "pdf",
   },
   {
     title: "Live Sorter Page",
     description: "Packing crew marks lots binned in real time with a shareable link.",
+    accent: "green",
+    icon: "sorter",
   },
   {
     title: "Cloud App",
     description: "Connect from anywhere. No desktop install — runs in Chrome on Mac or Windows.",
+    accent: "orange",
+    icon: "cloud",
   },
   {
     title: "Seller Dashboard",
     description: "Track lots sold, locker visits, and estimated time saved across your shows.",
+    accent: "blue",
+    icon: "dashboard",
   },
-] as const;
+] as const satisfies ReadonlyArray<{
+  title: string;
+  description: string;
+  accent: SellerFeatureAccent;
+  icon: SellerFeatureIcon;
+}>;
 
 export const FAQ_ITEMS = [
   {

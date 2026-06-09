@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Relai — AI Buyer Locker Room & Singles Sorter for Live Sellers",
+  title: "Relai — Labels, Locker Room & Sorting for Live Sellers",
   description:
-    "Stop losing money on shipping errors. The first AI-powered Buyer Locker Room & Singles Sorter for Live Sellers.",
+    "Run your live show. Relai labels wins, organizes buyers, and proves every purchase. Built for Whatnot sellers.",
 };
 
 export default function RootLayout({

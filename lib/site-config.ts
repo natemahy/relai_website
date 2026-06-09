@@ -11,11 +11,11 @@ export const ASSETS = {
 
 /** Optional landing images — drop files in public/ and set paths here */
 export const LANDING_IMAGES = {
-  howItWorks1: "",
-  howItWorks2: "/images/live-stream.png",
+  howItWorks1: "/images/extension.png",
+  howItWorks2: "/images/live-show.png",
   howItWorks3: "/images/sorter.png",
-  dashboard: "/images/dashboard.png",
-  afterShowPdf: "",
+  dashboard: "/images/extension.png",
+  afterShowPdf: "/images/after-show-pdf.png",
   sorter: "/images/sorter.png",
   lockerRoom: "/images/locker-room.png",
 } as const;

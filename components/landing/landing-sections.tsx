@@ -1,4 +1,5 @@
 import { OptionalImage } from "@/components/landing/optional-image";
+import { SellerFeatureIconGlyph } from "@/components/landing/seller-feature-icon";
 import { SectionHeading, SectionShell } from "@/components/landing/section-shell";
 import { TrialCtaButton } from "@/components/trial-cta-button";
 import {
@@ -16,6 +17,7 @@ import {
   PRINT_MODES_DETAILED,
   PRINTER_OPTIONS,
   SUPPORTED_PLATFORMS,
+  type SellerFeatureAccent,
 } from "@/lib/landing-content";
 import { LANDING_IMAGES } from "@/lib/site-config";
 
@@ -339,11 +341,14 @@ function LabelSizes() {
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {LABEL_SIZES.map((label) => (
-            <article key={label.size} className="glass-card space-y-2 p-5 text-center">
-              <h3 className="text-lg font-semibold tracking-tight text-primary">
+            <article
+              key={label.size}
+              className="space-y-2 rounded-2xl border-2 border-primary/45 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 p-5 text-center shadow-md shadow-primary/10"
+            >
+              <h3 className="text-xl font-bold tracking-tight text-primary">
                 {label.size}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-sm leading-relaxed text-foreground/85">
                 {label.description}
               </p>
             </article>
@@ -432,6 +437,50 @@ function LabelPreview({
   );
 }
 
+const SELLER_FEATURE_STYLES: Record<
+  SellerFeatureAccent,
+  { card: string; icon: string }
+> = {
+  blue: {
+    card: "border-primary/45 from-primary/20 via-primary/10 to-primary/5 shadow-primary/10",
+    icon: "bg-primary/15 text-primary",
+  },
+  green: {
+    card: "border-accent-success/45 from-accent-success/20 via-accent-success/10 to-accent-success/5 shadow-accent-success/10",
+    icon: "bg-accent-success/15 text-bucket-green",
+  },
+  orange: {
+    card: "border-bucket-orange/45 from-bucket-orange/20 via-bucket-orange/10 to-bucket-orange/5 shadow-bucket-orange/10",
+    icon: "bg-bucket-orange/15 text-bucket-orange",
+  },
+};
+
+function SellerFeatureCard({
+  feature,
+}: {
+  feature: (typeof BUILT_FOR_SELLERS)[number];
+}) {
+  const styles = SELLER_FEATURE_STYLES[feature.accent];
+
+  return (
+    <article
+      className={`space-y-4 rounded-2xl border-2 bg-gradient-to-br p-5 shadow-md ${styles.card}`}
+    >
+      <div className={`inline-flex rounded-xl p-2.5 ${styles.icon}`}>
+        <SellerFeatureIconGlyph icon={feature.icon} />
+      </div>
+      <div className="space-y-2">
+        <h3 className="text-sm font-semibold tracking-tight text-foreground">
+          {feature.title}
+        </h3>
+        <p className="text-sm leading-relaxed text-foreground/80">
+          {feature.description}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 function BuiltForSellers() {
   return (
     <SectionShell tinted>
@@ -441,22 +490,8 @@ function BuiltForSellers() {
           description="Everything you need to streamline your shipping process — and more that only Relai offers."
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {BUILT_FOR_SELLERS.map((feature, i) => (
-            <article
-              key={feature.title}
-              className={`glass-card space-y-2 p-5 ${
-                i % 3 === 0
-                  ? "accent-top-blue"
-                  : i % 3 === 1
-                    ? "accent-top-green"
-                    : "accent-top-orange"
-              }`}
-            >
-              <h3 className="text-sm font-semibold tracking-tight">{feature.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {feature.description}
-              </p>
-            </article>
+          {BUILT_FOR_SELLERS.map((feature) => (
+            <SellerFeatureCard key={feature.title} feature={feature} />
           ))}
         </div>
       </div>
