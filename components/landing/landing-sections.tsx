@@ -12,14 +12,17 @@ import {
   LABEL_SIZES,
   LOCKER_ROOM_HIGHLIGHTS,
   PLATFORM_STRIP,
-  PRICING,
+  PRICING_SECTION,
+  PRICING_TIERS,
+  PRICING_TRIAL,
   PRINT_MODE_PILLS,
   PRINT_MODES_DETAILED,
   PRINTER_OPTIONS,
   SUPPORTED_PLATFORMS,
   type SellerFeatureAccent,
 } from "@/lib/landing-content";
-import { LANDING_IMAGES } from "@/lib/site-config";
+import { LANDING_IMAGES, RELAI_APP_URL, signupUrlForPlan } from "@/lib/site-config";
+import { Button } from "@/components/ui/button";
 
 export function LandingSections() {
   return (
@@ -558,44 +561,82 @@ function SupportedPlatforms() {
 function PricingSection() {
   return (
     <SectionShell id="pricing">
-      <div className="mx-auto max-w-2xl">
-        <article className="glass-card accent-top-blue space-y-8 p-8 sm:p-10">
-          <div className="space-y-2 text-center">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              {PRICING.headline}
-            </h2>
-            <p className="text-sm text-muted-foreground sm:text-base">
-              {PRICING.subheadline}
+      <div className="space-y-10">
+        <SectionHeading
+          title={PRICING_SECTION.headline}
+          description={`${PRICING_SECTION.subheadline} ${PRICING_SECTION.intro}`}
+        />
+
+        <article className="mx-auto max-w-3xl space-y-4 rounded-2xl border-2 border-primary/45 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 p-6 shadow-md shadow-primary/10 sm:p-8">
+          <div className="space-y-2 text-center sm:text-left">
+            <h3 className="text-lg font-semibold tracking-tight text-foreground">
+              {PRICING_TRIAL.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-foreground/85">
+              {PRICING_TRIAL.description}
             </p>
           </div>
-
-          <div className="text-center">
-            <p className="text-4xl font-semibold tracking-tight">
-              {PRICING.price}
-              <span className="text-lg font-medium text-muted-foreground">
-                {PRICING.period}
-              </span>
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">{PRICING.trialNote}</p>
-          </div>
-
-          <ul className="space-y-2.5">
-            {PRICING.bullets.map((bullet) => (
-              <li
-                key={bullet}
-                className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground"
-              >
-                <CheckIcon />
-                {bullet}
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex justify-center sm:justify-start">
             <TrialCtaButton className="w-full sm:w-auto" />
-            <p className="text-xs text-muted-foreground">{PRICING.footnote}</p>
           </div>
         </article>
+
+        <div className="grid gap-5 lg:grid-cols-3">
+          {PRICING_TIERS.map((tier) => (
+            <article
+              key={tier.id}
+              className={
+                tier.accent === "highlight"
+                  ? "space-y-5 rounded-2xl border-2 border-primary/50 bg-gradient-to-br from-primary/15 via-primary/8 to-primary/5 p-6 shadow-md shadow-primary/10"
+                  : "glass-card space-y-5 p-6"
+              }
+            >
+              <div className="space-y-2">
+                <h3 className="text-lg font-semibold tracking-tight">{tier.title}</h3>
+                <p className="text-sm text-muted-foreground">{tier.description}</p>
+              </div>
+              <p className="text-3xl font-semibold tracking-tight tabular-nums">
+                ${tier.price}
+                <span className="text-base font-medium text-muted-foreground"> / month</span>
+              </p>
+              <ul className="space-y-2">
+                {tier.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    <CheckIcon />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button
+                href={signupUrlForPlan(tier.id)}
+                variant={tier.accent === "highlight" ? "primary" : "secondary"}
+                className="w-full"
+              >
+                {tier.cta}
+              </Button>
+            </article>
+          ))}
+        </div>
+
+        <p className="text-center text-xs text-muted-foreground">
+          {PRICING_SECTION.footnote}{" "}
+          <a
+            href={`${RELAI_APP_URL}/pricing`}
+            className="font-medium text-primary underline-offset-2 hover:underline"
+          >
+            View full pricing on Relai
+          </a>
+          {" · "}
+          <a
+            href={`${RELAI_APP_URL}/login`}
+            className="font-medium text-primary underline-offset-2 hover:underline"
+          >
+            Sign in
+          </a>
+        </p>
       </div>
     </SectionShell>
   );

@@ -1,6 +1,14 @@
-/** 7-day free trial signup — set NEXT_PUBLIC_TRIAL_SIGNUP_URL when checkout is live */
+/** Relai app (checkout, signup, pricing) — override with NEXT_PUBLIC_RELAI_APP_URL if needed */
+export const RELAI_APP_URL =
+  process.env.NEXT_PUBLIC_RELAI_APP_URL?.trim() || "https://www.therelaiapp.com";
+
+/** 7-day free trial — defaults to app pricing page */
 export const TRIAL_SIGNUP_HREF =
-  process.env.NEXT_PUBLIC_TRIAL_SIGNUP_URL ?? "#pricing";
+  process.env.NEXT_PUBLIC_TRIAL_SIGNUP_URL?.trim() || `${RELAI_APP_URL}/pricing`;
+
+export function signupUrlForPlan(plan: "trial" | "bronze" | "silver" | "gold") {
+  return `${RELAI_APP_URL}/signup?plan=${plan}`;
+}
 
 export const ASSETS = {
   logo: "/logo.png",

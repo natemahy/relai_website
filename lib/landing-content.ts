@@ -313,17 +313,65 @@ export const SUPPORTED_PLATFORMS = [
   },
 ] as const;
 
-export const PRICING = {
+export const PRICING_SECTION = {
   headline: "Ready to make your workflow easier?",
   subheadline: "Faster. Smarter. Easier — Relai",
-  price: "$30",
-  period: "/ month",
-  trialNote: "7-day free trial · then $30/month · cancel anytime",
-  bullets: [
-    "No per-label fees — print as many as you need",
-    "Cloud software application — connect from anywhere",
-    "Sequential numbering to stay organized",
-    "300 Buyer Locker Room photos included",
-  ],
-  footnote: "Cancel anytime.",
+  intro:
+    "Start with a 7-day Silver trial, or pick Bronze, Silver, or Gold. All plans include Relai Auction, Locker Room, and label printing.",
+  footnote: "Cancel anytime. No per-label fees.",
 } as const;
+
+export const PRICING_TRIAL = {
+  title: "7-day free trial",
+  description:
+    "Full Silver features · 300 photos · then $30/mo Bronze unless you upgrade or cancel",
+  cta: "Sign up & start trial",
+} as const;
+
+export const PRICING_TIERS = [
+  {
+    id: "bronze" as const,
+    title: "Relai Bronze",
+    price: 30,
+    description: "Run live shows without photos",
+    accent: "muted" as const,
+    features: [
+      "Relai Auction + Relai Locker Room",
+      "Whatnot extension & Sorter",
+      "Save lots without photos",
+      "Basic show analytics",
+      "1 live show · 3 archived visible",
+    ],
+    cta: "Sign up for Bronze",
+  },
+  {
+    id: "silver" as const,
+    title: "Relai Silver",
+    price: 59,
+    description: "Photos + dashboard for growing sellers",
+    accent: "highlight" as const,
+    features: [
+      "Everything in Bronze",
+      "Seller dashboard",
+      "Full show analytics",
+      "2,500 photos / month",
+      "1 live show · 20 archived visible",
+    ],
+    cta: "Sign up for Silver",
+  },
+  {
+    id: "gold" as const,
+    title: "Relai Gold",
+    price: 99,
+    description: "Volume, branding, and history",
+    accent: "muted" as const,
+    features: [
+      "Everything in Silver",
+      "6,000 photos / month",
+      "Branded per-show Locker Room + logo on photos",
+      "Dashboard date filters",
+      "1 live show · 50 archived visible",
+    ],
+    cta: "Sign up for Gold",
+  },
+] as const;
