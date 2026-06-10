@@ -1,3 +1,4 @@
+import { LoopVideo } from "@/components/landing/loop-video";
 import { OptionalImage } from "@/components/landing/optional-image";
 import { SellerFeatureIconGlyph } from "@/components/landing/seller-feature-icon";
 import { SectionHeading, SectionShell } from "@/components/landing/section-shell";
@@ -9,6 +10,7 @@ import {
   FAQ_ITEMS,
   GET_STARTED_ITEMS,
   HOW_IT_WORKS_STEPS,
+  LIVE_DEMO,
   LABEL_SIZES,
   LOCKER_ROOM_HIGHLIGHTS,
   PLATFORM_STRIP,
@@ -21,7 +23,7 @@ import {
   SUPPORTED_PLATFORMS,
   type SellerFeatureAccent,
 } from "@/lib/landing-content";
-import { LANDING_IMAGES, RELAI_APP_URL, signupUrlForPlan } from "@/lib/site-config";
+import { ASSETS, LANDING_IMAGES, RELAI_APP_URL, signupUrlForPlan } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 
 export function LandingSections() {
@@ -31,7 +33,7 @@ export function LandingSections() {
       <GetStarted />
       <BeforeAfter />
       <HowItWorks />
-      {/* Live demo section: insert between HowItWorks and AfterShowToolkit */}
+      <LiveDemoSection />
       <AfterShowToolkit />
       <BuyerLockerRoom />
       <PrinterSection />
@@ -237,6 +239,24 @@ function HowItWorks() {
             </li>
           ))}
         </ol>
+      </div>
+    </SectionShell>
+  );
+}
+
+function LiveDemoSection() {
+  return (
+    <SectionShell id="live-demo">
+      <div className="space-y-8">
+        <SectionHeading
+          eyebrow={LIVE_DEMO.eyebrow}
+          title={LIVE_DEMO.title}
+          description={LIVE_DEMO.description}
+        />
+        <LoopVideo
+          src={ASSETS.labelPrintDemo}
+          label="Relai automatic label printing on auction win"
+        />
       </div>
     </SectionShell>
   );

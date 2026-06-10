@@ -4,8 +4,16 @@ export const HERO_HEADLINE =
   "Run your live show. Relai labels wins, organizes buyers, and proves every purchase.";
 
 /** Sticky section nav — anchor links scroll to each block on the page */
+export const LIVE_DEMO = {
+  eyebrow: "Live demo",
+  title: "Watch a label print on every win",
+  description:
+    "When a buyer wins on stream, Relai detects it and sends the label to your printer automatically — no typing, no delay.",
+} as const;
+
 export const SECTION_NAV = [
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Live Demo", href: "#live-demo" },
   { label: "Dashboard & Tools", href: "#after-show" },
   { label: "Locker Room", href: "#locker-room" },
   { label: "Print Modes", href: "#print-modes" },

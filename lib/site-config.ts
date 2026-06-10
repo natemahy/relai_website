@@ -14,6 +14,7 @@ export const ASSETS = {
   logo: "/logo.png",
   logoWordmark: "/logo-wordmark.png",
   demoVideo: "/demo.mp4",
+  labelPrintDemo: "/label-print-demo.mp4",
   layoutReference: "/layout-reference.jpg",
 } as const;
 

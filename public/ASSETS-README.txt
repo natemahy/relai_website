@@ -3,6 +3,7 @@ Place your marketing assets here:
 - logo.png
 - logo-wordmark.png
 - demo.mp4
+- label-print-demo.mp4 (auto label print loop — How It Works live demo section)
 - layout-reference.jpg (optional)
 
 Optional landing section images — set paths in lib/site-config.ts (LANDING_IMAGES):
