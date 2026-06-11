@@ -23,11 +23,24 @@ export const SECTION_NAV = [
 
 export const HERO_TRUST_BADGES = [
   "Chrome",
-  "Mac & Windows",
+  "Mac, Windows & Linux",
   "Cloud — connect anywhere",
   "Cancel anytime",
   "Works with your printer",
 ] as const;
+
+/** Prominent compatibility callout for silent label printing. */
+export const PRINT_PLATFORM_COMPATIBILITY = {
+  headline: "Silent label printing: Mac, Windows, or Linux desktop",
+  supportedLine: "Automatic labels work on macOS 11+, Windows 10/11, and Linux desktop (Ubuntu, Fedora, etc.) with Google Chrome.",
+  notSupportedLine:
+    "Not supported on Chromebook (Chrome OS). Use a Mac or Windows PC as your show computer for printing — you can still sell from your phone.",
+  installers: [
+    { file: "RelaiPrint-mac.pkg", platform: "Mac" },
+    { file: "RelaiPrint-windows.exe", platform: "Windows" },
+    { file: "RelaiPrint-linux.sh", platform: "Linux desktop" },
+  ],
+} as const;
 
 export const PRINT_MODE_PILLS = [
   {
@@ -61,8 +74,8 @@ export const GET_STARTED_ITEMS = [
     description: "USB connection preferred",
   },
   {
-    title: "Mac or Windows",
-    description: "macOS 11+ or Windows 10/11",
+    title: "Mac, Windows, or Linux desktop",
+    description: "macOS 11+, Windows 10/11, or Linux with CUPS — not Chromebook",
   },
   {
     title: "Google Chrome",
@@ -238,7 +251,7 @@ export const BUILT_FOR_SELLERS = [
   },
   {
     title: "Cloud App",
-    description: "Connect from anywhere. No desktop install — runs in Chrome on Mac or Windows.",
+    description: "Connect from anywhere. Web app in Chrome on Mac, Windows, or Linux desktop for printing.",
     accent: "orange",
     icon: "cloud",
   },
@@ -269,7 +282,7 @@ export const FAQ_ITEMS = [
   {
     question: "What do I need to use Relai?",
     answer:
-      "A seller account on a supported platform (Whatnot or eBay Live in testing), a thermal label printer, a Mac or Windows computer, and Google Chrome. We recommend removable labels so they peel off cleanly without leaving residue.",
+      "A seller account on a supported platform (Whatnot or eBay Live in testing), a thermal label printer, a Mac, Windows, or Linux desktop computer (not Chromebook), and Google Chrome. We recommend removable labels so they peel off cleanly without leaving residue.",
   },
   {
     question: "Which browser do I need?",
@@ -284,7 +297,12 @@ export const FAQ_ITEMS = [
   {
     question: "Does it work on Mac and Windows?",
     answer:
-      "Yes. Mac requires macOS 11 or later. Windows 10 and 11 are both supported. You must use Google Chrome as your web browser.",
+      "Yes. Mac requires macOS 11 or later. Windows 10 and 11 are both supported. Linux desktop (Ubuntu, Fedora, etc.) is also supported for printing. You must use Google Chrome as your web browser.",
+  },
+  {
+    question: "Does Relai work on Chromebook?",
+    answer:
+      "Relai Auction and Locker Room can run in Chrome on many devices, but silent automatic label printing does not work on Chromebook (Chrome OS). Chrome OS does not allow our print helper. Use a Mac, Windows PC, or Linux desktop as your show computer for printing — you can still stream from your phone or tablet.",
   },
   {
     question: "What printers work?",

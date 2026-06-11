@@ -14,6 +14,7 @@ import {
   LABEL_SIZES,
   LOCKER_ROOM_HIGHLIGHTS,
   PLATFORM_STRIP,
+  PRINT_PLATFORM_COMPATIBILITY,
   PRICING_SECTION,
   PRICING_TIERS,
   PRICING_TRIAL,
@@ -86,10 +87,47 @@ function PrintModesAndPlatforms() {
   );
 }
 
+function PrintPlatformNotice({ compact = false }: { compact?: boolean }) {
+  return (
+    <div
+      role="note"
+      className={
+        compact
+          ? "rounded-xl border-2 border-amber-500/50 bg-amber-500/10 px-4 py-3 text-left text-sm ring-1 ring-amber-500/15"
+          : "rounded-2xl border-2 border-amber-500/55 bg-gradient-to-br from-amber-500/15 via-amber-500/8 to-transparent px-5 py-5 text-left shadow-md shadow-amber-500/10 ring-1 ring-amber-500/20"
+      }
+    >
+      <p className="text-base font-semibold tracking-tight text-foreground">
+        {PRINT_PLATFORM_COMPATIBILITY.headline}
+      </p>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+        {PRINT_PLATFORM_COMPATIBILITY.supportedLine}
+      </p>
+      <p className="mt-2 text-sm font-semibold text-amber-900 dark:text-amber-100">
+        {PRINT_PLATFORM_COMPATIBILITY.notSupportedLine}
+      </p>
+      {!compact ? (
+        <ul className="mt-4 grid gap-2 sm:grid-cols-3">
+          {PRINT_PLATFORM_COMPATIBILITY.installers.map((item) => (
+            <li
+              key={item.file}
+              className="rounded-lg border border-border/70 bg-background/50 px-3 py-2 text-xs"
+            >
+              <span className="block font-semibold text-foreground">{item.platform}</span>
+              <span className="mt-0.5 block font-mono text-[11px] text-muted-foreground">{item.file}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
 function GetStarted() {
   return (
     <SectionShell tinted>
       <div className="space-y-8">
+        <PrintPlatformNotice />
         <SectionHeading
           title="What you need to get started"
           description="Everything required to run your first show with Relai."
@@ -335,9 +373,10 @@ function PrinterSection() {
   return (
     <SectionShell>
       <div className="mx-auto max-w-3xl space-y-8 text-center">
+        <PrintPlatformNotice compact />
         <SectionHeading
           title="Works with your thermal printer"
-          description="Relai sends labels through your computer's standard print system, so it works with any thermal printer your computer can see."
+          description="Relai sends labels through your computer's standard print system on Mac, Windows, or Linux desktop — so it works with any thermal printer your computer can see."
         />
         <div className="flex flex-wrap items-center justify-center gap-3">
           {PRINTER_OPTIONS.map((option) => (
