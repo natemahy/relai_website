@@ -42,13 +42,6 @@ export const PRINT_PLATFORM_COMPATIBILITY = {
   ],
 } as const;
 
-export const PLATFORM_STRIP = [
-  { name: "Whatnot", status: "live" as const },
-  { name: "eBay Live", status: "testing" as const },
-  { name: "TikTok Live", status: "soon" as const },
-  { name: "Facebook Live", status: "soon" as const },
-] as const;
-
 export const GET_STARTED_ITEMS = [
   {
     title: "Whatnot seller account",

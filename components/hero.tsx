@@ -12,7 +12,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgb(231_74_249/0.14),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgb(51_178_255/0.16),transparent)]"
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:py-16 xl:px-8">
+      <div className="relative mx-auto max-w-6xl px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-14 lg:pb-12 lg:pt-16 xl:px-8">
         <div className="mb-8 lg:mb-0 lg:hidden">
           <RelaiLogo href={false} heightClass="h-10 sm:h-11" priority />
         </div>

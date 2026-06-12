@@ -13,7 +13,6 @@ import {
   LIVE_DEMO,
   LABEL_SIZES,
   LOCKER_ROOM_HIGHLIGHTS,
-  PLATFORM_STRIP,
   PRINT_PLATFORM_COMPATIBILITY,
   PRICING_SECTION,
   PRICING_TIERS,
@@ -29,7 +28,6 @@ import { Button } from "@/components/ui/button";
 export function LandingSections() {
   return (
     <>
-      <PrintModesAndPlatforms />
       <GetStarted />
       <BeforeAfter />
       <HowItWorks />
@@ -44,25 +42,6 @@ export function LandingSections() {
       <SupportedPlatforms />
       <PricingSection />
     </>
-  );
-}
-
-function PrintModesAndPlatforms() {
-  return (
-    <SectionShell>
-      <div className="space-y-10">
-        <div className="space-y-4">
-          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Platforms
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {PLATFORM_STRIP.map((platform) => (
-              <PlatformBadge key={platform.name} name={platform.name} status={platform.status} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </SectionShell>
   );
 }
 
@@ -89,7 +68,7 @@ function PrintPlatformNotice({ compact = false }: { compact?: boolean }) {
 
 function GetStarted() {
   return (
-    <SectionShell tinted>
+    <SectionShell tinted className="[&>div]:!pt-10 sm:[&>div]:!pt-12">
       <div className="space-y-8">
         <SectionHeading
           title="What you need to get started"
