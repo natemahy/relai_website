@@ -42,21 +42,6 @@ export const PRINT_PLATFORM_COMPATIBILITY = {
   ],
 } as const;
 
-export const PRINT_MODE_PILLS = [
-  {
-    title: "Every Item",
-    description: "Label per win so you can tag each item",
-  },
-  {
-    title: "Once Per Buyer",
-    description: "One label per buyer per show using the box method",
-  },
-  {
-    title: "Every Item + Buyer",
-    description: "Both labels at once — tag items and sort by buyer",
-  },
-] as const;
-
 export const PLATFORM_STRIP = [
   { name: "Whatnot", status: "live" as const },
   { name: "eBay Live", status: "testing" as const },
