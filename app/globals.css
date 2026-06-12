@@ -3,6 +3,10 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --relai-magenta: #e74af9;
+  --relai-purple: #625694;
+  --relai-cyan: #33b2ff;
+
   --bg-primary: #f9fafb;
   --bg-secondary: #f3f4f6;
   --bg-tertiary: #e5e7eb;
@@ -12,13 +16,13 @@
   --text-secondary: #374151;
   --text-muted: #6b7280;
   --border-primary: #e5e7eb;
-  --accent-primary: #2563eb;
-  --accent-hover: #1d4ed8;
+  --accent-primary: var(--relai-cyan);
+  --accent-hover: #22a8f5;
   --accent-success: #22c55e;
-  --bucket-purple: #6d28d9;
+  --bucket-purple: var(--relai-purple);
   --bucket-green: #047857;
   --bucket-orange: #c2410c;
-  --bucket-teal: #0e7490;
+  --bucket-teal: var(--relai-cyan);
 
   --background: var(--bg-primary);
   --foreground: var(--text-primary);
@@ -35,22 +39,22 @@
 }
 
 .dark {
-  --bg-primary: #111827;
-  --bg-secondary: #1f2937;
-  --bg-tertiary: #374151;
-  --bg-card: rgb(31 41 55 / 0.5);
-  --bg-card-solid: #1f2937;
+  --bg-primary: #050508;
+  --bg-secondary: #0c0c12;
+  --bg-tertiary: #18181f;
+  --bg-card: rgb(12 12 18 / 0.55);
+  --bg-card-solid: #0c0c12;
   --text-primary: #f9fafb;
   --text-secondary: #d1d5db;
   --text-muted: #9ca3af;
-  --border-primary: #374151;
-  --accent-primary: #3b82f6;
-  --accent-hover: #60a5fa;
+  --border-primary: #27272f;
+  --accent-primary: var(--relai-magenta);
+  --accent-hover: #f06aff;
   --accent-success: #22c55e;
   --bucket-purple: #c4b5fd;
   --bucket-green: #6ee7b7;
   --bucket-orange: #fdba74;
-  --bucket-teal: #5eead4;
+  --bucket-teal: var(--relai-cyan);
 
   --background: var(--bg-primary);
   --foreground: var(--text-primary);
@@ -115,14 +119,23 @@
       0 1px 2px 0 rgb(0 0 0 / 0.2);
   }
 
+  .relai-brand-gradient {
+    background: linear-gradient(
+      90deg,
+      var(--relai-magenta) 0%,
+      var(--relai-purple) 50%,
+      var(--relai-cyan) 100%
+    );
+  }
+
+  .accent-top-brand {
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--relai-magenta), var(--relai-purple), var(--relai-cyan)) 1;
+  }
+
   .accent-top-blue {
     border-top: 4px solid transparent;
-    border-image: linear-gradient(
-        90deg,
-        var(--accent-primary),
-        color-mix(in srgb, var(--accent-primary) 40%, var(--bucket-teal))
-      )
-      1;
+    border-image: linear-gradient(90deg, var(--relai-magenta), var(--relai-cyan)) 1;
   }
 
   .accent-top-green {
@@ -140,7 +153,7 @@
     border-image: linear-gradient(
         90deg,
         var(--bucket-orange),
-        color-mix(in srgb, var(--bucket-orange) 60%, var(--accent-primary))
+        color-mix(in srgb, var(--bucket-orange) 60%, var(--relai-cyan))
       )
       1;
   }

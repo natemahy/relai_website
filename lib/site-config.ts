@@ -1,3 +1,10 @@
+import {
+  RELAI_ICON_SRC,
+  RELAI_LOGO_SRC,
+  RELAI_LOGO_SPLIT_SRC,
+  RELAI_LOGO_WHITE_SRC,
+} from "@/lib/relai-brand";
+
 /** Relai app (checkout, signup, pricing) — override with NEXT_PUBLIC_RELAI_APP_URL if needed */
 export const RELAI_APP_URL =
   process.env.NEXT_PUBLIC_RELAI_APP_URL?.trim() || "https://www.therelaiapp.com";
@@ -11,8 +18,13 @@ export function signupUrlForPlan(plan: "trial" | "bronze" | "silver" | "gold") {
 }
 
 export const ASSETS = {
-  logo: "/logo.png",
-  logoWordmark: "/logo-wordmark.png",
+  /** @deprecated Use RELAI_ICON_SRC — compact mark */
+  logo: RELAI_ICON_SRC,
+  /** Primary gradient wordmark */
+  logoWordmark: RELAI_LOGO_SRC,
+  logoWhite: RELAI_LOGO_WHITE_SRC,
+  logoSplit: RELAI_LOGO_SPLIT_SRC,
+  icon: RELAI_ICON_SRC,
   demoVideo: "/demo.mp4",
   labelPrintDemo: "/label-print-demo.mp4",
   layoutReference: "/layout-reference.jpg",

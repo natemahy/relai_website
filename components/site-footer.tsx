@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+
+import { RelaiLogo } from "@/components/relai-logo";
 import { Modal } from "@/components/ui/modal";
 import {
   PRIVACY_SECTIONS,
@@ -36,19 +38,22 @@ export function SiteFooter() {
   return (
     <>
       <footer className="border-t border-border/60 bg-surface/30">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p className="text-sm text-muted-foreground">© {year} Relai</p>
-          <nav aria-label="Footer" className="flex flex-wrap gap-4 text-sm">
-            <button type="button" onClick={() => setPrivacyOpen(true)} className={linkClass}>
-              Privacy
-            </button>
-            <button type="button" onClick={() => setTermsOpen(true)} className={linkClass}>
-              Terms
-            </button>
-            <a href={`mailto:${SUPPORT_EMAIL}`} className={linkClass}>
-              Contact
-            </a>
-          </nav>
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
+          <RelaiLogo href="/" heightClass="h-7 sm:h-8" />
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-muted-foreground">© {year} Relai</p>
+            <nav aria-label="Footer" className="flex flex-wrap gap-4 text-sm">
+              <button type="button" onClick={() => setPrivacyOpen(true)} className={linkClass}>
+                Privacy
+              </button>
+              <button type="button" onClick={() => setTermsOpen(true)} className={linkClass}>
+                Terms
+              </button>
+              <a href={`mailto:${SUPPORT_EMAIL}`} className={linkClass}>
+                Contact
+              </a>
+            </nav>
+          </div>
         </div>
       </footer>
 

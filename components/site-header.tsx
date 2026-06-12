@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+
+import { RelaiLogo } from "@/components/relai-logo";
 import { Modal } from "@/components/ui/modal";
-import { ASSETS } from "@/lib/site-config";
 import { RELAI_KNOW_MORE_PARAGRAPHS } from "@/lib/relai-know-more-content";
 import { useTheme } from "@/lib/use-theme";
 
@@ -14,25 +13,9 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 overflow-visible border-b border-border/60 bg-app/80 backdrop-blur-md">
-        <div className="mx-auto flex min-h-[4.5rem] max-w-6xl items-center justify-between overflow-visible px-4 py-2 sm:min-h-20 sm:px-6 xl:px-8">
-          <Link
-            href="/"
-            className="relative flex h-9 w-[min(32rem,90vw)] max-w-[calc(100vw-8rem)] shrink-0 items-center overflow-visible sm:h-9 sm:max-w-none sm:w-[min(32rem,38vw)]"
-            aria-label="Relai home"
-          >
-            <div className="relative h-8 w-[11.5rem] origin-left scale-[2.05] sm:h-9 sm:w-[12.5rem] sm:scale-[2.25] md:scale-[2.45] lg:w-[13rem] lg:scale-[2.65]">
-              <Image
-                src={ASSETS.logoWordmark}
-                alt="Relai"
-                fill
-                className="object-contain object-left"
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 512px"
-                unoptimized
-                priority
-              />
-            </div>
-          </Link>
+      <header className="sticky top-0 z-50 border-b border-border/60 bg-app/80 backdrop-blur-md">
+        <div className="mx-auto flex min-h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:min-h-[4.5rem] sm:px-6 xl:px-8">
+          <RelaiLogo priority heightClass="h-7 sm:h-8 md:h-9" />
 
           <div className="flex items-center gap-4 sm:gap-6">
             <button

@@ -1,13 +1,21 @@
-Place your marketing assets here:
+Relai marketing site assets
 
-- logo.png
-- logo-wordmark.png
-- demo.mp4
-- label-print-demo.mp4 (auto label print loop — How It Works live demo section)
-- layout-reference.jpg (optional)
+Brand (synced from BreakBoard — run `npm run sync:brand`):
+  public/brand/relai-logo.png         Primary gradient wordmark
+  public/brand/relai-logo-white.png   White wordmark
+  public/brand/relai-logo-split.png   White REL + gradient Ai
+  public/brand/icon/                  Favicons + R-in-circle icon
 
-Optional landing section images — set paths in lib/site-config.ts (LANDING_IMAGES):
-- howItWorks1, howItWorks2, howItWorks3
-- dashboard, afterShowPdf, sorter, lockerRoom
+Legacy aliases (also updated on sync):
+  logo-wordmark.png → same as brand/relai-logo.png
+  logo.png          → compact icon (favicon-32)
 
-See README.md at the project root for details.
+Videos & reference:
+  demo.mp4
+  label-print-demo.mp4
+  layout-reference.jpg
+
+Landing section images — paths in lib/site-config.ts (LANDING_IMAGES):
+  public/images/
+
+Web icons: app/icon.png, app/apple-icon.png (Next.js auto-serves)

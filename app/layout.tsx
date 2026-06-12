@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "Relai — Labels, Locker Room & Sorting for Live Sellers",
   description:
     "Run your live show. Relai labels wins, organizes buyers, and proves every purchase. Built for Whatnot sellers.",
+  icons: {
+    icon: "/brand/icon/favicon-32.png",
+    apple: "/brand/icon/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
