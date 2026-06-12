@@ -39,7 +39,7 @@ export function SiteFooter() {
     <>
       <footer className="border-t border-border/60 bg-surface/30">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
-          <RelaiLogo href="/" heightClass="h-7 sm:h-8" />
+          <RelaiLogo href="/" heightClass="h-8 sm:h-9" />
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-muted-foreground">© {year} Relai</p>
             <nav aria-label="Footer" className="flex flex-wrap gap-4 text-sm">

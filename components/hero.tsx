@@ -14,7 +14,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:py-16 xl:px-8">
         <div className="mb-8 lg:mb-0 lg:hidden">
-          <RelaiLogo href={false} heightClass="h-9" priority />
+          <RelaiLogo href={false} heightClass="h-10 sm:h-11" priority />
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">

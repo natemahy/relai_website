@@ -14,7 +14,7 @@ mkdir -p "$ROOT/public/brand/icon" "$ROOT/brand-sources" "$ROOT/lib"
 
 cp "$BB/brand-sources/"*.png "$ROOT/brand-sources/"
 cp -R "$BB/public/brand/"* "$ROOT/public/brand/"
-cp "$BB/public/brand/relai-logo.png" "$ROOT/public/logo-wordmark.png"
+cp "$BB/public/brand/relai-logo-header.png" "$ROOT/public/logo-wordmark.png"
 cp "$BB/public/brand/icon/favicon-32.png" "$ROOT/public/logo.png"
 cp "$BB/src/lib/relai-brand-colors.generated.json" "$ROOT/lib/relai-brand-colors.generated.json"
 cp "$BB/src/app/icon.png" "$ROOT/app/icon.png"

@@ -13,9 +13,9 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-app/80 backdrop-blur-md">
-        <div className="mx-auto flex min-h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:min-h-[4.5rem] sm:px-6 xl:px-8">
-          <RelaiLogo priority heightClass="h-7 sm:h-8 md:h-9" />
+      <header className="sticky top-0 z-50 border-b border-border/60 bg-transparent py-2.5 backdrop-blur-md supports-[backdrop-filter]:bg-transparent">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 xl:px-8">
+          <RelaiLogo priority heightClass="h-9 sm:h-10 md:h-11" />
 
           <div className="flex items-center gap-4 sm:gap-6">
             <button

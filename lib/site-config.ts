@@ -1,5 +1,6 @@
 import {
   RELAI_ICON_SRC,
+  RELAI_LOGO_HEADER_SRC,
   RELAI_LOGO_SRC,
   RELAI_LOGO_SPLIT_SRC,
   RELAI_LOGO_WHITE_SRC,
@@ -20,8 +21,8 @@ export function signupUrlForPlan(plan: "trial" | "bronze" | "silver" | "gold") {
 export const ASSETS = {
   /** @deprecated Use RELAI_ICON_SRC — compact mark */
   logo: RELAI_ICON_SRC,
-  /** Primary gradient wordmark */
-  logoWordmark: RELAI_LOGO_SRC,
+  /** Primary gradient wordmark (transparent header) */
+  logoWordmark: RELAI_LOGO_HEADER_SRC,
   logoWhite: RELAI_LOGO_WHITE_SRC,
   logoSplit: RELAI_LOGO_SPLIT_SRC,
   icon: RELAI_ICON_SRC,

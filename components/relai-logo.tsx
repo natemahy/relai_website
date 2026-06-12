@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { RELAI_APP_NAME, RELAI_LOGO_ASPECT, RELAI_LOGO_SRC } from "@/lib/relai-brand";
+import { RELAI_APP_NAME, RELAI_LOGO_ASPECT, RELAI_LOGO_HEADER_SRC } from "@/lib/relai-brand";
 
 type RelaiLogoProps = {
   className?: string;
@@ -24,7 +24,7 @@ export function RelaiLogo({
       style={{ aspectRatio: RELAI_LOGO_ASPECT }}
     >
       <Image
-        src={RELAI_LOGO_SRC}
+        src={RELAI_LOGO_HEADER_SRC}
         alt={RELAI_APP_NAME}
         fill
         className="object-contain object-left"
