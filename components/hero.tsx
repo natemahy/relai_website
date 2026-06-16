@@ -1,4 +1,4 @@
-import { DemoVideo } from "@/components/demo-video";
+import { HeroVideo } from "@/components/hero-video";
 import { RelaiLogo } from "@/components/relai-logo";
 import { Button } from "@/components/ui/button";
 import { TrialCtaButton } from "@/components/trial-cta-button";
@@ -13,30 +13,26 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-14 lg:pb-12 lg:pt-16 xl:px-8">
-        <div className="mb-8 lg:mb-0 lg:hidden">
+        <div className="mb-6 lg:mb-8 lg:hidden">
           <RelaiLogo href={false} heightClass="h-10 sm:h-11" priority />
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
-          <h1 className="max-w-4xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:col-span-7 lg:col-start-1 lg:max-w-none lg:text-[2.75rem] lg:leading-[1.12] xl:text-5xl xl:leading-[1.1]">
-            {HERO_HEADLINE}
-          </h1>
+        <div className="space-y-8 sm:space-y-10">
+          <HeroVideo />
 
-          <div className="space-y-6 lg:col-span-6 lg:col-start-1 lg:pt-4 xl:pt-6">
-            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Print organizational labels the moment a buyer wins. Cloud app and
-              Chrome extension built for Whatnot live sellers — when your show
-              ends, every item is already sorted and ready to pack.
-            </p>
+          <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.12] xl:text-5xl xl:leading-[1.1]">
+              {HERO_HEADLINE}
+            </h1>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <TrialCtaButton />
               <Button href="#how-it-works" variant="secondary">
                 See How It Works
               </Button>
             </div>
 
-            <ul className="flex flex-wrap gap-2 pt-1">
+            <ul className="flex flex-wrap justify-center gap-2 pt-1">
               {HERO_TRUST_BADGES.map((badge) => (
                 <li key={badge}>
                   <span className="inline-flex rounded-full border border-border/80 bg-card-solid/60 px-3 py-1 text-[11px] font-medium text-muted-foreground">
@@ -45,12 +41,6 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="z-10 mt-10 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:mt-0 lg:pt-16 xl:pt-24">
-            <div className="lg:origin-top lg:scale-[1.07] xl:scale-[1.09]">
-              <DemoVideo />
-            </div>
           </div>
         </div>
       </div>

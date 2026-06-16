@@ -11,6 +11,8 @@ Legacy aliases (also updated on sync):
   logo.png          → compact icon (favicon-32)
 
 Videos & reference:
+  hero-video.mp4          Hero loop (no audio track)
+  hero-video-poster.jpg   Hero poster / reduced-motion fallback
   demo.mp4
   label-print-demo.mp4
   layout-reference.jpg

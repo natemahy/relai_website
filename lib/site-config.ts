@@ -26,6 +26,9 @@ export const ASSETS = {
   logoWhite: RELAI_LOGO_WHITE_SRC,
   logoSplit: RELAI_LOGO_SPLIT_SRC,
   icon: RELAI_ICON_SRC,
+  /** Hero loop — audio stripped; always muted in UI */
+  heroVideo: "/hero-video.mp4",
+  heroVideoPoster: "/hero-video-poster.jpg",
   demoVideo: "/demo.mp4",
   labelPrintDemo: "/label-print-demo.mp4",
   layoutReference: "/layout-reference.jpg",
